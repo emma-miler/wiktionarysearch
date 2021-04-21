@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			#textbox {
+				width: 100%;
+				font-size: 24px;
+			}
+			
+			#frame {
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" id="textbox">
+		<iframe id="frame" frameBorder="0" src="https://en.wiktionary.org/wiki/Wiktionary:Main_Page" height="700px"></iframe>
+		<script>
+			var input = document.getElementById("textbox");
+			input.addEventListener("keyup", function(event) {
+				if (event.keyCode === 13) {
+					event.preventDefault();
+					var source = "https://en.wiktionary.org/wiki/" + input.value + "#Latin";
+					document.getElementById("frame").src = source;
+				}
+			});
+		</script>
+	</body>
+</html>
